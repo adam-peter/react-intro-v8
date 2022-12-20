@@ -1,4 +1,7 @@
-const Pet = ({name, animal, breed}) => {
+import React from "react";
+import ReactDOM from "react-dom/client";
+
+const Pet = ({ name, animal, breed }) => {
   return React.createElement("div", {}, [
     React.createElement("h1", {}, name),
     React.createElement("h2", {}, animal),
@@ -12,9 +15,21 @@ const App = () => {
     {}, //attributes
     [
       React.createElement("h1", {}, "Adopt me!"),
-      React.createElement(Pet, {name: "Fousek", animal: "Cat", breed: "Cool"}),
-      React.createElement(Pet, {name: "Ondrášek", animal: "Dog", breed: "Cool"}),
-      React.createElement(Pet, {name: "Charles", animal: "Dog", breed: "Cool"}),
+      React.createElement(Pet, {
+        name: "Fousek",
+        animal: "Cat",
+        breed: "Cool",
+      }),
+      React.createElement(Pet, {
+        name: "Ondrášek",
+        animal: "Dog",
+        breed: "Cool",
+      }),
+      React.createElement(Pet, {
+        name: "Charles",
+        animal: "Dog",
+        breed: "Cool",
+      }),
     ]
   );
 };
