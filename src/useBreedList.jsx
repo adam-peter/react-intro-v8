@@ -10,7 +10,7 @@ export default function useBreedList(animal) {
     if (!animal) {
       setBreedList([]);
     } else if (localCache[animal]) {
-      setBreedList(localCache);
+      setBreedList(localCache[animal]);
     } else {
       requestBreedList();
     }
@@ -23,7 +23,7 @@ export default function useBreedList(animal) {
         `http://pets-v2.dev-apis.com/breeds?animal=${animal}`
       );
       const jsonData = await res.json();
-      localCache[animal] = jsonData.breeds | [];
+      localCache[animal] = jsonData.breeds || [];
       setBreedList(localCache[animal]);
       setStatus("loaded");
     }

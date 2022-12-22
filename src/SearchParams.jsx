@@ -63,7 +63,7 @@ const SearchParams = () => {
           </select>
         </label>
 
-        <label htmlFor="breed" disabled>
+        <label htmlFor="breed">
           Breed
           <select
             id="breed"
