@@ -30,4 +30,6 @@ export default function useBreedList(animal) {
   }, [animal]);
 
   return [breedList, status];
+  //status for testing and tracking
+  //include a status const for every hook that has to load something
 }
