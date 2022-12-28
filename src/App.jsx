@@ -21,7 +21,12 @@ const App = () => {
   const adoptedPet = useState(null); //we're passing the whole useState HOOK -> we can both get and set the state (that's saved as context)
 
   return (
-    <div>
+    <div
+      className="p-0 m-0"
+      style={{
+        background: "url(http://pets-images.dev-apis.com/pets/wallpaperC.jpg)",
+      }}
+    >
       <BrowserRouter>
         <QueryClientProvider client={queryClient}>
           <AdoptedPetContext.Provider value={adoptedPet}>
