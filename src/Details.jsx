@@ -26,9 +26,9 @@ const Details = () => {
   const pet = results.data.pets[0];
 
   return (
-    <div className="details">
-      <Carousel images={pet.images} />
-      <div>
+    <div>
+      <Carousel images={pet.images}/>
+      <div className="mx-16 my-5">
         <h1>{pet.name}</h1>
         <h2>{`${pet.animal} — ${pet.breed} — ${pet.city}, ${pet.state}`}</h2>
         <button onClick={() => setShowModal(true)}>Adopt {pet.name}</button>
