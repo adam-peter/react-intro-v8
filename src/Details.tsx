@@ -12,10 +12,15 @@ import { IPetApiResponce } from "./APIResponsesTypes";
 
 const Details = () => {
   const { id } = useParams();
+
+  if (!id){
+    throw new Error("No ID Error")
+  }
+
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
+  const results = useQuery<IPetApiResponce>(["details", id], fetchPet);
   const [_, setAdoptedPet] = useContext(AdoptedPetContext);
-  const results = useQuery(["details", id], fetchPet);
 
   if (results.isLoading) {
     return (
@@ -26,6 +31,9 @@ const Details = () => {
   }
 
   const pet = results.data.pets[0];
+  if (!pet){
+    throw new Error("no pet lol")
+  }
 
   return (
     <div>
@@ -58,10 +66,10 @@ const Details = () => {
   );
 };
 
-export default function DetailsErrorBoundary(props) {
+export default function DetailsErrorBoundary() {
   return (
     <ErrorBoundary>
-      <Details {...props} />
+      <Details/>
     </ErrorBoundary>
   );
 }
