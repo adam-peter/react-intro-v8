@@ -8,11 +8,13 @@ import ErrorBoundary from "./ErrorBoundary";
 import fetchPet from "./fetchPet";
 import Carousel from "./Carousel";
 
+import { IPetApiResponce } from "./APIResponsesTypes";
+
 const Details = () => {
+  const { id } = useParams();
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
   const [_, setAdoptedPet] = useContext(AdoptedPetContext);
-  const { id } = useParams();
   const results = useQuery(["details", id], fetchPet);
 
   if (results.isLoading) {
